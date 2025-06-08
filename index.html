@@ -1,76 +1,134 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Cicada | عندما يتحدث الصمت</title>
+  <title>Cicada | When Silence Speaks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Cairo',sans-serif; background:#050505; color:#e0e0e0; }
-    header { text-align:center; padding:40px 20px; }
-    header h1 { font-size:2.5rem; color:#00ff41; text-shadow:0 0 10px #00ff41; }
-    header p.sh { margin:15px 0; font-style:italic; }
-    nav { text-align:center; margin-bottom:40px; }
-    nav a { margin:0 10px; color:#00ff41; text-decoration:none; font-size:1rem; }
-    section { max-width:900px; margin:0 auto 60px; padding:0 20px;}
-    section h2 { border-bottom:1px solid #00ff41; padding-bottom:10px; margin-bottom:20px; }
-    .item { margin-bottom:15px; }
-    .item a { color:#00ff41; text-decoration:none; }
-    footer { text-align:center; padding:20px; font-size:0.9rem; opacity:0.7; }
-    @media (max-width:768px){ header h1{font-size:2rem;} nav a{font-size:0.9rem;} }
-    @media (max-width:480px){ header h1{font-size:1.5rem;} nav a{display:block;margin:8px 0;} }
+    body {
+      font-family:'Cairo',sans-serif;
+      background:#050505;
+      color:#e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      text-align:center;
+      padding:40px 20px 30px 20px;
+      position: relative;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background: #222;
+      color: #00ff41;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lang-switch:hover { background: #00ff41; color: #222; }
+    header h1 {
+      font-size:2.5rem;
+      color:#00ff41;
+      text-shadow:0 0 10px #00ff41;
+    }
+    header p.sh {
+      margin:15px 0;
+      font-style:italic;
+      color:#A0FFA0;
+      font-size: 1.1rem;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content: center;
+    }
+    .sections-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:center;
+      gap: 28px;
+      margin: 30px 0;
+      max-width: 800px;
+    }
+    .section-btn {
+      background: #181818;
+      border: 2px solid #00ff41;
+      color: #00ff41;
+      border-radius: 18px;
+      padding: 32px 36px;
+      min-width: 170px;
+      min-height: 90px;
+      font-size: 1.25rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s, box-shadow 0.3s;
+      box-shadow: 0 2px 12px 0 #00000040;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+    }
+    .section-btn:hover {
+      background: #00ff41;
+      color: #181818;
+      box-shadow: 0 6px 24px 0 #00ff4140;
+      scale: 1.04;
+    }
+    footer {
+      text-align:center;
+      padding:20px;
+      font-size:0.95rem;
+      opacity:0.7;
+      margin-top: 40px;
+    }
+    @media (max-width: 900px) {
+      .sections-grid { gap: 16px; }
+      .section-btn { min-width: 140px; padding: 24px 16px; }
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.4rem; }
+      .sections-grid { flex-direction: column; align-items:center; }
+      .section-btn { min-width: 90vw; max-width: 95vw; }
+    }
   </style>
+  <script>
+    function switchLang() {
+      // Simple redirect for demonstration (you can enhance for real multi-language)
+      window.location.href = "index_ar.html"; // put your Arabic version file here
+    }
+  </script>
 </head>
 <body>
-
   <header>
-    <h1>Cicada | عندما يتحدث الصمت</h1>
-    <p class="sh">من يتهيب صعود الجبال، يعيش أبد الدهر بين الحفر<br><em>He who fears climbing the mountains shall live forever in the pits.</em></p>
+    <button class="lang-switch" onclick="switchLang()">العربية</button>
+    <h1>Cicada | When Silence Speaks</h1>
+    <p class="sh">He who fears climbing the mountains shall live forever in the pits.<br>
+      <em>من يتهيب صعود الجبال، يعيش أبد الدهر بين الحفر</em></p>
   </header>
-
-  <nav>
-    <a href="#music">🎵 موسيقى</a> |
-    <a href="#audiobooks">📚 كتب مسموعة</a> |
-    <a href="#news">📰 أخبار</a> |
-    <a href="#gallery">📷 صور</a> |
-    <a href="#comments">💬 تعليقات</a> |
-    <a href="#contact">📥 طلبات/اتصل</a>
-  </nav>
-
-  <section id="music">
-    <h2>🎵 موسيقى</h2>
-    <div class="item"><a href="https://drive.google.com/your-music.zip" download>تحميل الموسيقى (ZIP)</a></div>
-  </section>
-
-  <section id="audiobooks">
-    <h2>📚 كتب مسموعة</h2>
-    <div class="item"><a href="https://drive.google.com/your-audiobook.zip" download>تحميل الكتاب المسموع (ZIP)</a></div>
-  </section>
-
-  <section id="news">
-    <h2>📰 أخبار</h2>
-    <div class="item">هنا سيتم نشر آخر المستجدات قريبًا...</div>
-  </section>
-
-  <section id="gallery">
-    <h2>📷 صور</h2>
-    <div class="item">قريبًا معرض الصور الفنية.</div>
-  </section>
-
-  <section id="comments">
-    <h2>💬 تعليقات الزوار</h2>
-    <div class="item">يمكنك ترك تعليقك هنا بعد التفعيل.</div>
-  </section>
-
-  <section id="contact">
-    <h2>📥 طلبات / اتصل</h2>
-    <div class="item">راسلني على: <a href="mailto:Cicada330033@gmail.com">Cicada330033@gmail.com</a></div>
-  </section>
-
+  <main>
+    <div class="sections-grid">
+      <a class="section-btn" href="music.html">🎵 Music</a>
+      <a class="section-btn" href="audiobooks.html">📚 Audiobooks</a>
+      <a class="section-btn" href="news.html">📰 News</a>
+      <a class="section-btn" href="gallery.html">📷 Gallery</a>
+      <a class="section-btn" href="comments.html">💬 Comments</a>
+      <a class="section-btn" href="contact.html">📥 Contact/Requests</a>
+    </div>
+  </main>
   <footer>
-    &copy; 2025 Cicada — كل الحقوق محفوظة | تصميم متجاوب للكمبيوتر والتابلت والموبايل.
+    &copy; 2025 Cicada — All rights reserved | Responsive design for desktop, tablet & mobile.
   </footer>
-
 </body>
 </html>
