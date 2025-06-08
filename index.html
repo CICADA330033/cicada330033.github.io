@@ -2,49 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cicada | When Silence Speaks</title>
+  <title>Space UI Example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
-    :root {
-      --main-bg: #101012;
-      --sidebar-bg: #18181a;
-      --accent: #00ff41;
-      --sidebar-width: 80px;
-      --header-height: 56px;
-      --text-main: #f0f0f0;
-      --text-muted: #bdbdbd;
-      --card-bg: #19191b;
-      --card-radius: 18px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
     body {
       font-family: 'Cairo', sans-serif;
-      background: var(--main-bg);
-      color: var(--text-main);
+      color: #f0f0f0;
+      margin: 0;
+      height: 100%;
       min-height: 100vh;
-      display: flex;
+      position: relative;
+      overflow-x: hidden;
+      background: #0a0f1b;
     }
-    /* Sidebar */
+    #particles-js {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      left: 0;
+      top: 0;
+    }
     .sidebar {
-      width: var(--sidebar-width);
-      background: var(--sidebar-bg);
+      width: 80px;
+      background: rgba(16, 24, 40, 0.98);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 16px 0;
-      gap: 10px;
+      padding: 18px 0;
       min-height: 100vh;
-      border-right: 1px solid #232323;
+      border-right: 1px solid #233;
       position: fixed;
       left: 0; top: 0; bottom: 0;
-      z-index: 99;
+      z-index: 10;
     }
     .sidebar .logo {
-      margin-bottom: 30px;
+      margin-bottom: 28px;
       font-size: 2rem;
-      color: var(--accent);
+      color: #00cfff;
       font-weight: bold;
       letter-spacing: 2px;
     }
@@ -54,9 +52,9 @@
       justify-content: center;
       width: 48px;
       height: 48px;
-      margin: 8px 0;
+      margin: 10px 0;
       border-radius: 16px;
-      color: var(--text-muted);
+      color: #bdbdbd;
       font-size: 1.6rem;
       background: none;
       transition: background 0.2s, color 0.2s, box-shadow 0.2s;
@@ -64,29 +62,28 @@
     }
     .sidebar a.active,
     .sidebar a:hover {
-      background: linear-gradient(135deg, #00ff41, #7d5fff);
+      background: linear-gradient(135deg, #00cfff, #2534a7);
       color: #18181a;
-      box-shadow: 0 4px 16px #00ff4166;
+      box-shadow: 0 4px 16px #00cfff66;
     }
-    /* Header */
     .header {
       width: 100%;
-      height: var(--header-height);
-      background: #18181a;
+      height: 56px;
+      background: rgba(16, 24, 40, 0.99);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-left: calc(var(--sidebar-width) + 20px);
+      padding-left: 100px;
       padding-right: 30px;
       position: fixed;
       left: 0; right: 0; top: 0;
-      z-index: 90;
-      border-bottom: 1px solid #222;
+      z-index: 9;
+      border-bottom: 1px solid #1b2c3b;
     }
     .header .search-box {
       display: flex;
       align-items: center;
-      background: #23232b;
+      background: #1a2233;
       padding: 6px 18px;
       border-radius: 20px;
       margin-right: 18px;
@@ -97,12 +94,12 @@
       color: #fff;
       font-size: 1rem;
       outline: none;
-      width: 200px;
+      width: 180px;
       margin-left: 10px;
     }
     .header .lang-switch {
-      background: #23232b;
-      color: var(--accent);
+      background: #1a2233;
+      color: #00cfff;
       border: none;
       border-radius: 16px;
       padding: 7px 18px;
@@ -113,7 +110,7 @@
       transition: background 0.2s, color 0.2s;
     }
     .header .lang-switch:hover {
-      background: var(--accent);
+      background: #00cfff;
       color: #18181a;
     }
     .header .header-icons {
@@ -123,7 +120,7 @@
     }
     .header .header-icons .icon {
       font-size: 1.4rem;
-      color: var(--accent);
+      color: #00cfff;
       cursor: pointer;
       transition: color 0.2s;
     }
@@ -132,23 +129,25 @@
     }
     .header .header-icons .avatar {
       width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
-      border: 2px solid var(--accent);
+      border: 2px solid #00cfff;
     }
-    /* Main content */
     .main-content {
-      margin-left: var(--sidebar-width);
-      margin-top: var(--header-height);
-      padding: 40px 32px 32px 32px;
-      min-height: calc(100vh - var(--header-height));
-      background: linear-gradient(135deg, #18181a 70%, #232323 100%);
+      margin-left: 80px;
+      margin-top: 56px;
+      padding: 48px 32px 32px 32px;
+      min-height: calc(100vh - 56px);
       display: flex;
       flex-direction: row;
-      gap: 28px;
+      gap: 32px;
     }
     .left-panel {
       flex: 2;
       min-width: 360px;
       max-width: 700px;
+      background: rgba(22,32,44,0.88);
+      border-radius: 24px;
+      box-shadow: 0 6px 24px #00cfff22;
+      padding: 28px 28px 18px 28px;
     }
     .section-tabs {
       display: flex;
@@ -169,8 +168,8 @@
     }
     .section-tabs button.active,
     .section-tabs button:hover {
-      background: #302f2f;
-      color: var(--accent);
+      background: #00cfff22;
+      color: #00cfff;
     }
     .card-list {
       display: flex;
@@ -180,9 +179,9 @@
       flex-wrap: wrap;
     }
     .card {
-      background: var(--card-bg);
-      border-radius: var(--card-radius);
-      box-shadow: 0 2px 16px 0 #0006;
+      background: #152040;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px 0 #00cfff33;
       width: 150px;
       min-height: 180px;
       overflow: hidden;
@@ -191,10 +190,12 @@
       align-items: center;
       transition: transform 0.16s, box-shadow 0.16s;
       cursor: pointer;
+      border: 1.5px solid #2534a7;
     }
     .card:hover {
       transform: scale(1.04);
-      box-shadow: 0 4px 24px 0 #00ff4130;
+      box-shadow: 0 4px 24px 0 #00cfff55;
+      border-color: #00cfff;
     }
     .card img {
       width: 100%;
@@ -213,7 +214,7 @@
     }
     .card .card-desc {
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: #aaddff;
       text-align: center;
       padding-bottom: 10px;
       padding-left: 8px;
@@ -224,8 +225,9 @@
       font-weight: 700;
       margin-bottom: 14px;
       margin-top: 10px;
+      color: #00cfff;
+      text-shadow: 0 0 8px #00cfff44;
     }
-    /* Right Panel */
     .right-panel {
       flex: 1;
       min-width: 260px;
@@ -238,14 +240,13 @@
     }
     .right-panel .section-title {
       font-size: 1.25rem;
-      color: var(--accent);
+      color: #00cfff;
     }
-    /* Footer */
     .footer-bar {
       position: fixed;
-      left: var(--sidebar-width); right: 0; bottom: 0;
-      background: #a541ff;
-      color: #fff;
+      left: 80px; right: 0; bottom: 0;
+      background: #00cfff;
+      color: #18181a;
       font-size: 1.05rem;
       padding: 6px 28px;
       text-align: right;
@@ -272,36 +273,18 @@
       .footer-bar { left: 56px; padding: 4px 10px; font-size: 0.98rem;}
     }
   </style>
-  <script>
-    // Language switch demo
-    function switchLang() {
-      window.location.href = "index_ar.html";
-    }
-    // Tabs switching
-    function showTab(tab) {
-      const allTabs = document.querySelectorAll('.section-tabs button');
-      allTabs.forEach(btn => btn.classList.remove('active'));
-      document.getElementById('tab-all').style.display = 'none';
-      document.getElementById('tab-music').style.display = 'none';
-      document.getElementById('tab-audiobooks').style.display = 'none';
-      document.getElementById('tab-' + tab).style.display = 'block';
-      document.getElementById('btn-' + tab).classList.add('active');
-    }
-    window.onload = function(){
-      showTab('all');
-    }
-  </script>
 </head>
 <body>
+  <div id="particles-js"></div>
   <!-- Sidebar -->
   <div class="sidebar">
     <div class="logo">🦗</div>
-    <a href="music.html" title="Music"><i class="fa-solid fa-music"></i></a>
-    <a href="audiobooks.html" title="Audiobooks"><i class="fa-solid fa-book-open"></i></a>
-    <a href="news.html" title="News"><i class="fa-solid fa-newspaper"></i></a>
-    <a href="gallery.html" title="Gallery"><i class="fa-solid fa-image"></i></a>
-    <a href="comments.html" title="Comments"><i class="fa-solid fa-comments"></i></a>
-    <a href="contact.html" title="Contact"><i class="fa-solid fa-envelope"></i></a>
+    <a href="#" title="Music" class="active"><i class="fa-solid fa-music"></i></a>
+    <a href="#"><i class="fa-solid fa-book-open"></i></a>
+    <a href="#"><i class="fa-solid fa-newspaper"></i></a>
+    <a href="#"><i class="fa-solid fa-image"></i></a>
+    <a href="#"><i class="fa-solid fa-comments"></i></a>
+    <a href="#"><i class="fa-solid fa-envelope"></i></a>
   </div>
   <!-- Header -->
   <div class="header">
@@ -310,7 +293,7 @@
         <i class="fa-solid fa-search"></i>
         <input type="text" placeholder="What do you want to play?" />
       </div>
-      <button class="lang-switch" onclick="switchLang()">العربية</button>
+      <button class="lang-switch" onclick="alert('Language switch not implemented yet.')">العربية</button>
     </div>
     <div class="header-icons">
       <span class="icon"><i class="fa-regular fa-heart"></i></span>
@@ -323,35 +306,33 @@
   <div class="main-content">
     <div class="left-panel">
       <div class="section-tabs">
-        <button id="btn-all" class="active" onclick="showTab('all')">All</button>
-        <button id="btn-music" onclick="showTab('music')">Music</button>
-        <button id="btn-audiobooks" onclick="showTab('audiobooks')">Audiobooks</button>
+        <button class="active">All</button>
+        <button>Music</button>
+        <button>Audiobooks</button>
       </div>
-      <!-- Tab: All -->
-      <div id="tab-all">
+      <div>
         <div class="section-title">Made For You</div>
         <div class="card-list">
-          <div class="card"><img src="https://i.imgur.com/Cn6iA4Z.png" alt="Daily Mix 1"><div class="card-title">Daily Mix 01</div><div class="card-desc">Aziza Qobilova</div></div>
-          <div class="card"><img src="https://i.imgur.com/z9K4z5U.jpg" alt="Daily Mix 2"><div class="card-title">Daily Mix 02</div><div class="card-desc">Yanni, Vangelis</div></div>
-          <div class="card"><img src="https://i.imgur.com/A0y6aQv.jpg" alt="Daily Mix 3"><div class="card-title">Daily Mix 03</div><div class="card-desc">Alok, FiNCH, David</div></div>
-          <div class="card"><img src="https://i.imgur.com/bGM81hU.jpg" alt="Daily Mix 4"><div class="card-title">Daily Mix 04</div><div class="card-desc">Ash, Majed Zane</div></div>
-        </div>
-      </div>
-      <!-- Tab: Music -->
-      <div id="tab-music" style="display:none">
-        <div class="section-title">Music</div>
-        <div class="card-list">
-          <div class="card"><img src="https://i.imgur.com/ZbQ4QFz.jpg" alt="Album 1"><div class="card-title">CAIRO</div><div class="card-desc">Modern Egyptian Sound</div></div>
-          <div class="card"><img src="https://i.imgur.com/0tQh9Ff.jpg" alt="Album 2"><div class="card-title">Ahwak</div><div class="card-desc">Classic Arabic</div></div>
-          <div class="card"><img src="https://i.imgur.com/Xu1mQsG.jpg" alt="Album 3"><div class="card-title">Waed & Hesham</div><div class="card-desc">New Releases</div></div>
-        </div>
-      </div>
-      <!-- Tab: Audiobooks -->
-      <div id="tab-audiobooks" style="display:none">
-        <div class="section-title">Audiobooks</div>
-        <div class="card-list">
-          <div class="card"><img src="https://i.imgur.com/XF1R9Xy.jpg" alt="Audiobook 1"><div class="card-title">The Alchemist</div><div class="card-desc">Paulo Coelho</div></div>
-          <div class="card"><img src="https://i.imgur.com/5H2VfLP.jpg" alt="Audiobook 2"><div class="card-title">1984</div><div class="card-desc">George Orwell</div></div>
+          <div class="card">
+            <img src="https://i.imgur.com/Cn6iA4Z.png" alt="Daily Mix 1">
+            <div class="card-title">Daily Mix 01</div>
+            <div class="card-desc">Aziza Qobilova</div>
+          </div>
+          <div class="card">
+            <img src="https://i.imgur.com/z9K4z5U.jpg" alt="Daily Mix 2">
+            <div class="card-title">Daily Mix 02</div>
+            <div class="card-desc">Yanni, Vangelis</div>
+          </div>
+          <div class="card">
+            <img src="https://i.imgur.com/A0y6aQv.jpg" alt="Daily Mix 3">
+            <div class="card-title">Daily Mix 03</div>
+            <div class="card-desc">Alok, FiNCH, David</div>
+          </div>
+          <div class="card">
+            <img src="https://i.imgur.com/bGM81hU.jpg" alt="Daily Mix 4">
+            <div class="card-title">Daily Mix 04</div>
+            <div class="card-desc">Ash, Majed Zane</div>
+          </div>
         </div>
       </div>
     </div>
@@ -369,5 +350,84 @@
     <i class="fa-solid fa-volume-up"></i>
     Playing on Web Player (Chrome)
   </div>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 90,
+          "density": {
+            "enable": true,
+            "value_area": 900
+          }
+        },
+        "color": {
+          "value": ["#ffffff", "#00cfff", "#43aaff", "#b7e3ff"]
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.7,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 0.5,
+            "opacity_min": 0.3,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3.5,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 20,
+            "size_min": 0.5,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#43aaff",
+          "opacity": 0.16,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 1.2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          }
+        },
+        "modes": {
+          "repulse": {
+            "distance": 90,
+            "duration": 0.5
+          },
+          "push": {
+            "particles_nb": 6
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 </body>
 </html>
