@@ -2,49 +2,75 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cicada | عندما يتحدث الصمت</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: #050505;
-      color: #e0e0e0;
-      text-align: center;
-      padding: 40px;
-    }
-    h1 {
-      color: #00ff41;
-      text-shadow: 0 0 10px #00ff41;
-      font-size: 2.5rem;
-    }
-    p.sh {
-      margin: 20px 0;
-      font-size: 1.1rem;
-    }
-    nav a {
-      color: #00ff41;
-      margin: 0 10px;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-    .notice {
-      margin-top: 40px;
-      opacity: 0.7;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Cairo',sans-serif; background:#050505; color:#e0e0e0; }
+    header { text-align:center; padding:40px 20px; }
+    header h1 { font-size:2.5rem; color:#00ff41; text-shadow:0 0 10px #00ff41; }
+    header p.sh { margin:15px 0; font-style:italic; }
+    nav { text-align:center; margin-bottom:40px; }
+    nav a { margin:0 10px; color:#00ff41; text-decoration:none; font-size:1rem; }
+    section { max-width:900px; margin:0 auto 60px; padding:0 20px;}
+    section h2 { border-bottom:1px solid #00ff41; padding-bottom:10px; margin-bottom:20px; }
+    .item { margin-bottom:15px; }
+    .item a { color:#00ff41; text-decoration:none; }
+    footer { text-align:center; padding:20px; font-size:0.9rem; opacity:0.7; }
+    @media (max-width:768px){ header h1{font-size:2rem;} nav a{font-size:0.9rem;} }
+    @media (max-width:480px){ header h1{font-size:1.5rem;} nav a{display:block;margin:8px 0;} }
   </style>
 </head>
 <body>
-  <h1>Cicada | عندما يتحدث الصمت</h1>
-  <p class="sh">من يتهيب صعود الجبال، يعيش أبد الدهر بين الحفر<br><em>He who fears climbing the mountains shall live forever in the pits.</em></p>
+
+  <header>
+    <h1>Cicada | عندما يتحدث الصمت</h1>
+    <p class="sh">من يتهيب صعود الجبال، يعيش أبد الدهر بين الحفر<br><em>He who fears climbing the mountains shall live forever in the pits.</em></p>
+  </header>
+
   <nav>
-    <a href="#">🎵 موسيقى</a> |
-    <a href="#">📚 كتب مسموعة</a> |
-    <a href="#">📰 أخبار</a> |
-    <a href="#">📷 صور</a> |
-    <a href="#">💬 تعليقات</a> |
-    <a href="#">📥 طلبات</a> |
-    <a href="#">✉️ رسائل</a>
+    <a href="#music">🎵 موسيقى</a> |
+    <a href="#audiobooks">📚 كتب مسموعة</a> |
+    <a href="#news">📰 أخبار</a> |
+    <a href="#gallery">📷 صور</a> |
+    <a href="#comments">💬 تعليقات</a> |
+    <a href="#contact">📥 طلبات/اتصل</a>
   </nav>
-  <p class="notice">✨ هذا نموذج أولي سريع — جاري إضافة روابط تحميل تجريبية قريبًا.</p>
+
+  <section id="music">
+    <h2>🎵 موسيقى</h2>
+    <div class="item"><a href="https://drive.google.com/your-music.zip" download>تحميل الموسيقى (ZIP)</a></div>
+  </section>
+
+  <section id="audiobooks">
+    <h2>📚 كتب مسموعة</h2>
+    <div class="item"><a href="https://drive.google.com/your-audiobook.zip" download>تحميل الكتاب المسموع (ZIP)</a></div>
+  </section>
+
+  <section id="news">
+    <h2>📰 أخبار</h2>
+    <div class="item">هنا سيتم نشر آخر المستجدات قريبًا...</div>
+  </section>
+
+  <section id="gallery">
+    <h2>📷 صور</h2>
+    <div class="item">قريبًا معرض الصور الفنية.</div>
+  </section>
+
+  <section id="comments">
+    <h2>💬 تعليقات الزوار</h2>
+    <div class="item">يمكنك ترك تعليقك هنا بعد التفعيل.</div>
+  </section>
+
+  <section id="contact">
+    <h2>📥 طلبات / اتصل</h2>
+    <div class="item">راسلني على: <a href="mailto:Cicada330033@gmail.com">Cicada330033@gmail.com</a></div>
+  </section>
+
+  <footer>
+    &copy; 2025 Cicada — كل الحقوق محفوظة | تصميم متجاوب للكمبيوتر والتابلت والموبايل.
+  </footer>
+
 </body>
 </html>
