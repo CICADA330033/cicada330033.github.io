@@ -5,18 +5,18 @@
   <title>Cicada | When Silence Speaks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     :root {
       --main-bg: #101012;
       --sidebar-bg: #18181a;
       --accent: #00ff41;
-      --card-bg: #19191b;
-      --card-radius: 18px;
-      --card-shadow: 0 2px 16px 0 #0006;
       --sidebar-width: 80px;
       --header-height: 56px;
       --text-main: #f0f0f0;
       --text-muted: #bdbdbd;
+      --card-bg: #19191b;
+      --card-radius: 18px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -59,13 +59,14 @@
       color: var(--text-muted);
       font-size: 1.6rem;
       background: none;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
       text-decoration: none;
     }
     .sidebar a.active,
     .sidebar a:hover {
-      background: var(--accent);
+      background: linear-gradient(135deg, #00ff41, #7d5fff);
       color: #18181a;
+      box-shadow: 0 4px 16px #00ff4166;
     }
     /* Header */
     .header {
@@ -129,6 +130,10 @@
     .header .header-icons .icon:hover {
       color: #fff;
     }
+    .header .header-icons .avatar {
+      width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--accent);
+    }
     /* Main content */
     .main-content {
       margin-left: var(--sidebar-width);
@@ -159,8 +164,8 @@
       border-radius: 18px;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
       font-size: 1.1rem;
+      transition: background 0.2s, color 0.2s;
     }
     .section-tabs button.active,
     .section-tabs button:hover {
@@ -177,7 +182,7 @@
     .card {
       background: var(--card-bg);
       border-radius: var(--card-radius);
-      box-shadow: var(--card-shadow);
+      box-shadow: 0 2px 16px 0 #0006;
       width: 150px;
       min-height: 180px;
       overflow: hidden;
@@ -256,7 +261,6 @@
       margin-right: 10px;
       font-size: 1.2rem;
     }
-    /* Responsive */
     @media (max-width: 900px) {
       .main-content { flex-direction: column; gap: 0; }
       .right-panel { padding-left: 0; min-width: 100px; }
@@ -268,14 +272,12 @@
       .footer-bar { left: 56px; padding: 4px 10px; font-size: 0.98rem;}
     }
   </style>
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <script>
-    // For language switch
+    // Language switch demo
     function switchLang() {
       window.location.href = "index_ar.html";
     }
-    // Tabs switching behavior (mockup)
+    // Tabs switching
     function showTab(tab) {
       const allTabs = document.querySelectorAll('.section-tabs button');
       allTabs.forEach(btn => btn.classList.remove('active'));
@@ -314,7 +316,7 @@
       <span class="icon"><i class="fa-regular fa-heart"></i></span>
       <span class="icon"><i class="fa-regular fa-bell"></i></span>
       <span class="icon"><i class="fa-solid fa-users"></i></span>
-      <span class="icon"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="profile" style="width:32px;height:32px;border-radius:50%;vertical-align:middle"></span>
+      <span class="icon"><img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="profile"></span>
     </div>
   </div>
   <!-- Main Content -->
