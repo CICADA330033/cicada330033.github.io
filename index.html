@@ -1,213 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Deep Space UI Example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <title>موقعي الشامل</title>
   <style>
-    html, body { height: 100%; }
-    body {
-      font-family: 'Cairo', sans-serif;
-      color: #f0f0f0;
-      margin: 0;
-      height: 100%;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-      background: rgb(4,6,18);
-      background: linear-gradient(135deg, rgba(4,6,18,1) 70%, #23233b 100%);
-    }
-    #particles-js {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      left: 0;
-      top: 0;
-    }
-    /* Example content, adapt as needed */
-    .center-content {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 1;
-      position: relative;
-    }
-    .main-title {
-      font-size: 2.6rem;
-      letter-spacing: 1.5px;
-      text-shadow: 0 0 16px #6e40c9a0, 0 2px 12px #040612;
-      color: #b7afff;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-    .subtitle {
-      color: #7d5fff;
-      font-size: 1.3rem;
-      text-shadow: 0 0 8px #23233b;
-      margin-bottom: 28px;
-    }
-    .card-list {
-      display: flex;
-      gap: 24px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .card {
-      background: rgba(22,20,38,0.85);
-      border-radius: 18px;
-      box-shadow: 0 2px 16px 0 #2b1c4d66;
-      width: 160px;
-      min-height: 180px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.16s, box-shadow 0.16s;
-      cursor: pointer;
-      border: 1.5px solid #23233b;
-    }
-    .card:hover {
-      transform: scale(1.06);
-      box-shadow: 0 4px 24px 0 #7d5fff66;
-      border-color: #7d5fff;
-    }
-    .card img {
-      width: 100%;
-      height: 110px;
-      object-fit: cover;
-      display: block;
-      background: #2a2a2a;
-    }
-    .card .card-title {
-      font-size: 1.05rem;
-      font-weight: bold;
-      margin: 12px 0 6px 0;
-      color: #fff;
-      text-align: center;
-      padding: 0 5px;
-    }
-    .card .card-desc {
-      font-size: 0.97rem;
-      color: #b7afff;
-      text-align: center;
-      padding-bottom: 10px;
-      padding-left: 8px;
-      padding-right: 8px;
-    }
+    body { font-family: Tahoma, Arial, sans-serif; background: #1a1a1a; color: #fff; text-align: center; margin: 0; }
+    h1 { color: #ff9800; margin-top: 40px; }
+    ul { list-style: none; padding: 0; margin: 40px auto; max-width: 400px; }
+    li { background: #222; margin: 10px 0; border-radius: 8px; transition: 0.2s; }
+    li:hover { background: #ff9800; color: #222; }
+    a { display: block; padding: 20px; text-decoration: none; color: inherit; font-size: 1.2em; }
+    .lang-switch {margin: 30px;}
+    button {background: #ff9800; color: #222; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;}
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
-  <div class="center-content">
-    <div class="main-title">Cicada Space</div>
-    <div class="subtitle">Welcome to your deep-space dashboard</div>
-    <div class="card-list">
-      <div class="card">
-        <img src="https://i.imgur.com/Cn6iA4Z.png" alt="Daily Mix 1">
-        <div class="card-title">Daily Mix 01</div>
-        <div class="card-desc">Aziza Qobilova</div>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/z9K4z5U.jpg" alt="Daily Mix 2">
-        <div class="card-title">Daily Mix 02</div>
-        <div class="card-desc">Yanni, Vangelis</div>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/A0y6aQv.jpg" alt="Daily Mix 3">
-        <div class="card-title">Daily Mix 03</div>
-        <div class="card-desc">Alok, FiNCH, David</div>
-      </div>
-      <div class="card">
-        <img src="https://i.imgur.com/bGM81hU.jpg" alt="Daily Mix 4">
-        <div class="card-title">Daily Mix 04</div>
-        <div class="card-desc">Ash, Majed Zane</div>
-      </div>
-    </div>
+  <div class="lang-switch">
+    <button onclick="switchLang('ar')">العربية</button>
+    <button onclick="switchLang('en')">English</button>
   </div>
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <h1>مرحباً بك في موقعي الشامل</h1>
+  <ul>
+    <li><a href="music.html">صفحة الموسيقى</a></li>
+    <li><a href="pdf-books.html">صفحة كتب PDF</a></li>
+    <li><a href="audio-books.html">صفحة الكتب الصوتية</a></li>
+    <li><a href="images.html">صفحة الصور والخلفيات</a></li>
+    <li><a href="news.html">صفحة الأخبار والمقالات</a></li>
+    <li><a href="stories.html">صفحة القصص</a></li>
+  </ul>
   <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 90,
-          "density": {
-            "enable": true,
-            "value_area": 900
-          }
-        },
-        "color": {
-          "value": ["#ffffff", "#7d5fff", "#4960a8", "#36417a", "#b7b7ff", "#4e69d1"]
-        },
-        "shape": {
-          "type": "circle"
-        },
-        "opacity": {
-          "value": 0.7,
-          "random": true,
-          "anim": {
-            "enable": true,
-            "speed": 0.5,
-            "opacity_min": 0.3,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 3.5,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 20,
-            "size_min": 0.5,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#36417a",
-          "opacity": 0.17,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 1.1,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out"
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          }
-        },
-        "modes": {
-          "repulse": {
-            "distance": 90,
-            "duration": 0.5
-          },
-          "push": {
-            "particles_nb": 6
-          }
-        }
-      },
-      "retina_detect": true
-    });
+    function switchLang(lang) {
+      if(lang === 'ar') {
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+        document.querySelector('h1').textContent = 'مرحباً بك في موقعي الشامل';
+        document.querySelectorAll('a')[0].textContent = 'صفحة الموسيقى';
+        document.querySelectorAll('a')[1].textContent = 'صفحة كتب PDF';
+        document.querySelectorAll('a')[2].textContent = 'صفحة الكتب الصوتية';
+        document.querySelectorAll('a')[3].textContent = 'صفحة الصور والخلفيات';
+        document.querySelectorAll('a')[4].textContent = 'صفحة الأخبار والمقالات';
+        document.querySelectorAll('a')[5].textContent = 'صفحة القصص';
+      } else {
+        document.documentElement.lang = 'en';
+        document.documentElement.dir = 'ltr';
+        document.querySelector('h1').textContent = 'Welcome to My Website';
+        document.querySelectorAll('a')[0].textContent = 'Music Page';
+        document.querySelectorAll('a')[1].textContent = 'PDF Books Page';
+        document.querySelectorAll('a')[2].textContent = 'Audio Books Page';
+        document.querySelectorAll('a')[3].textContent = 'Images & Wallpapers';
+        document.querySelectorAll('a')[4].textContent = 'News & Articles';
+        document.querySelectorAll('a')[5].textContent = 'Stories Page';
+      }
+    }
   </script>
 </body>
 </html>
